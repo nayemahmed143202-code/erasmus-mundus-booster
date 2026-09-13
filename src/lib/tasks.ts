@@ -1,0 +1,444 @@
+import { Task, AppData } from "./types";
+
+const STORAGE_KEY = "erasmus-mundus-tasks";
+
+export const defaultTasks: Task[] = [
+  {
+    id: "1",
+    title: "Create a Proof Portfolio",
+    description: "Show evidence for every claim on your CV by building a free online portfolio.",
+    longDescription:
+      "Create a free Linktree, Canva, or caard.co page that serves as proof for everything you claim on your CV. Add sections for certificates, publications, awards, projects, and media mentions. Upload PDFs and images to Google Drive, then link them from your portfolio page. Finally, add your portfolio link to your CV so reviewers can verify your achievements.",
+    whyItMatters:
+      "Show evidence for every claim on your CV. Selection committees want to verify your achievements, and having a portfolio with proof makes your application significantly more credible.",
+    stepByStepActions: [
+      "Create a free Linktree, Canva, or caard.co page",
+      "Add sections for certificates, publications, awards, projects, and media mentions",
+      "Upload PDFs/images to Google Drive",
+      "Link the Google Drive files in your portfolio",
+      "Add your portfolio link to your CV",
+    ],
+    toolsAndLinks: [
+      { name: "Linktree", url: "https://linktr.ee/" },
+      { name: "Canva", url: "https://www.canva.com/" },
+      { name: "caard.co", url: "https://caard.co/" },
+      { name: "Google Drive", url: "https://drive.google.com/" },
+    ],
+    timeEstimate: "1-2 hours",
+    cvPortfolioTip: 'Add "Portfolio: [link]" under contact info in your CV.',
+    status: "not_started",
+    deadline: "",
+    notes: "",
+    links: [],
+    evidence: [],
+    checklist: [
+      { id: "c1-1", text: "Create free Linktree/Canva/caard.co page", completed: false },
+      { id: "c1-2", text: "Add sections for certificates, publications, awards, projects, media mentions", completed: false },
+      { id: "c1-3", text: "Upload PDFs/images to Google Drive", completed: false },
+      { id: "c1-4", text: "Link Drive files to portfolio", completed: false },
+      { id: "c1-5", text: "Add portfolio link to CV", completed: false },
+    ],
+    isCustom: false,
+    category: "Portfolio",
+  },
+  {
+    id: "2",
+    title: "Get Published in Your Field",
+    description: "Prove your writing ability and become searchable by publishing articles online.",
+    longDescription:
+      "Write 2-3 LinkedIn articles and create a Medium account to post them. Pitch to your university blog or alumni spotlight section. Contribute articles to a local NGO website. Add all published links to your CV and portfolio.",
+    whyItMatters:
+      "Prove writing ability and become searchable. Publications show initiative, expertise, and communication skills to selection committees.",
+    stepByStepActions: [
+      "Write 2-3 LinkedIn articles",
+      "Create Medium account and post",
+      "Pitch to university blog/alumni spotlight",
+      "Contribute to local NGO website",
+      "Add all links to CV/portfolio",
+    ],
+    toolsAndLinks: [
+      { name: "LinkedIn", url: "https://www.linkedin.com/" },
+      { name: "Medium", url: "https://medium.com/" },
+    ],
+    timeEstimate: "2-4 hours per article",
+    cvPortfolioTip: 'Add "Publications" section with links to each article.',
+    status: "not_started",
+    deadline: "",
+    notes: "",
+    links: [],
+    evidence: [],
+    checklist: [
+      { id: "c2-1", text: "Write 2-3 LinkedIn articles", completed: false },
+      { id: "c2-2", text: "Create Medium account and post", completed: false },
+      { id: "c2-3", text: "Pitch to university blog/alumni spotlight", completed: false },
+      { id: "c2-4", text: "Contribute to local NGO website", completed: false },
+      { id: "c2-5", text: "Add links to CV/portfolio", completed: false },
+    ],
+    isCustom: false,
+    category: "Publications",
+  },
+  {
+    id: "3",
+    title: "Apply for Fully Funded Summer Schools & Fellowships",
+    description: "Build a track record of funded opportunities to strengthen your CV.",
+    longDescription:
+      "Search for fully funded summer schools and fellowships in your field. Use queries like 'fully funded summer school [field] 2026' and 'fully funded fellowship for undergraduates [country/field]'. Check university scholarship pages and find local summer programs. Track all deadlines in Excel and apply to at least 3 programs.",
+    whyItMatters:
+      "Having funded programs on your CV shows you are competitive and can secure opportunities. It strengthens your Erasmus Mundus application significantly.",
+    stepByStepActions: [
+      "Search 'fully funded summer school [field] 2026'",
+      "Search 'fully funded fellowship for undergraduates [country/field]'",
+      "Check university scholarship pages for opportunities",
+      "Find local summer programs in Bangladesh",
+      "Track all deadlines in Excel spreadsheet",
+      "Apply to at least 3 programs",
+    ],
+    toolsAndLinks: [
+      { name: "Scholarship Portal", url: "https://www.scholarshipportal.com/" },
+      { name: "Funding for Training", url: "https://www.fundingfortraining.com/" },
+      { name: "Opportunities Corners", url: "https://opportunitiescorners.com/" },
+    ],
+    timeEstimate: "1-2 weeks",
+    cvPortfolioTip: 'Add "Funded Programs" section with any offers you receive, even if you decline them.',
+    status: "not_started",
+    deadline: "",
+    notes: "",
+    links: [],
+    evidence: [],
+    checklist: [
+      { id: "c3-1", text: "Search fully funded summer schools in your field", completed: false },
+      { id: "c3-2", text: "Search fully funded fellowships for undergraduates", completed: false },
+      { id: "c3-3", text: "Check university scholarship pages", completed: false },
+      { id: "c3-4", text: "Find local summer programs", completed: false },
+      { id: "c3-5", text: "Track deadlines in Excel", completed: false },
+      { id: "c3-6", text: "Apply to at least 3 programs", completed: false },
+    ],
+    isCustom: false,
+    category: "Funding",
+  },
+  {
+    id: "4",
+    title: "Write a Strong Motivation Letter",
+    description: "Connect your aviation experience with your tourism management goals in a compelling letter.",
+    longDescription:
+      "Write a motivation letter that tells your unique story: from marketing MBA to airline industry to Erasmus Mundus. Explain how your 3.5+ years at US-Bangla Airlines gives you hands-on experience in the travel value chain, and how the program will help you contribute to Bangladesh's tourism sector. Be specific about destination management, service quality, and sustainable tourism research.",
+    whyItMatters:
+      "Your aviation-tourism linkage perspective is rare and valuable. The motivation letter is where you prove you understand the program and can contribute uniquely.",
+    stepByStepActions: [
+      "Outline your journey: aviation → MBA → Erasmus Mundus",
+      "Write about your US-Bangla Airlines experience (GDS, client management, campaigns)",
+      "Connect to tourism management goals (destination management, service quality)",
+      "Mention your RRF community research experience",
+      "Explain long-term goal: contributing to Bangladesh's tourism sector",
+      "Revise 3-5 times for clarity and impact",
+    ],
+    toolsAndLinks: [
+      { name: "Grammarly", url: "https://www.grammarly.com/" },
+      { name: "Writing Guide", url: "https://www.writebetter.ai/" },
+    ],
+    timeEstimate: "3-5 days",
+    cvPortfolioTip: "Each letter must be customized for the specific program. Show you researched their curriculum and faculty.",
+    status: "not_started",
+    deadline: "",
+    notes: "",
+    links: [],
+    evidence: [],
+    checklist: [
+      { id: "c4-1", text: "Outline aviation → MBA → Erasmus Mundus journey", completed: false },
+      { id: "c4-2", text: "Write about US-Bangla Airlines experience", completed: false },
+      { id: "c4-3", text: "Connect to tourism management goals", completed: false },
+      { id: "c4-4", text: "Revise 3-5 times", completed: false },
+      { id: "c4-5", text: "Get feedback from someone", completed: false },
+    ],
+    isCustom: false,
+    category: "Documents",
+  },
+  {
+    id: "5",
+    title: "Build LinkedIn & Online Presence",
+    description: "Create a professional LinkedIn profile and publish articles to become discoverable.",
+    longDescription:
+      "Set up a complete LinkedIn profile highlighting your aviation-tourism background. Write 2-3 articles about hospitality service quality, aviation-tourism linkages, or sustainable tourism in Bangladesh. Create a Medium account and cross-post. This builds your professional brand and shows initiative to selection committees.",
+    whyItMatters:
+      "Selection committees Google you. A strong LinkedIn presence with published articles makes you memorable and shows thought leadership.",
+    stepByStepActions: [
+      "Complete LinkedIn profile with professional photo",
+      "Write headline: 'Aviation Professional | Hospitality & Tourism Management Scholar'",
+      "Add all work experience, education, skills, and certifications",
+      "Write 2-3 LinkedIn articles on tourism/hospitality topics",
+      "Create Medium account and cross-post articles",
+      "Connect with Erasmus Mundus alumni and professors",
+    ],
+    toolsAndLinks: [
+      { name: "LinkedIn", url: "https://www.linkedin.com/" },
+      { name: "Medium", url: "https://medium.com/" },
+    ],
+    timeEstimate: "4-6 hours total",
+    cvPortfolioTip: "Add LinkedIn URL to your CV. Articles demonstrate writing ability and expertise in your field.",
+    status: "not_started",
+    deadline: "",
+    notes: "",
+    links: [],
+    evidence: [],
+    checklist: [
+      { id: "c5-1", text: "Complete LinkedIn profile with photo", completed: false },
+      { id: "c5-2", text: "Write professional headline", completed: false },
+      { id: "c5-3", text: "Add all experience, education, skills", completed: false },
+      { id: "c5-4", text: "Write 2-3 LinkedIn articles", completed: false },
+      { id: "c5-5", text: "Create Medium account and cross-post", completed: false },
+      { id: "c5-6", text: "Connect with EM alumni and professors", completed: false },
+    ],
+    isCustom: false,
+    category: "Networking",
+  },
+  {
+    id: "6",
+    title: "Prepare Academic Transcripts & Documents",
+    description: "Gather transcripts from all institutions and organize digital copies.",
+    longDescription:
+      "Request official transcripts from University of Rajshahi (MBA, CGPA 3.79), National University (BBA, CGPA 3.16), Shahid Akbar Ali Science & Technology College (HSC, GPA 4.50), and Talgachi A.I. High School (SSC, GPA 4.19). Some programs need certified English translations. Scan everything and upload to Google Drive.",
+    whyItMatters:
+      "Official transcripts verify your academic history. Your MBA CGPA of 3.79 is strong — make sure it's properly documented and translated.",
+    stepByStepActions: [
+      "Request MBA transcript from University of Rajshahi",
+      "Request BBA transcript from National University",
+      "Request HSC certificate from Shahid Akbar Ali College",
+      "Request SSC certificate from Talgachi A.I. High School",
+      "Get certified English translations if needed",
+      "Scan and upload all to Google Drive",
+    ],
+    toolsAndLinks: [
+      { name: "Google Drive", url: "https://drive.google.com/" },
+      { name: "CamScanner", url: "https://www.camscanner.com/" },
+    ],
+    timeEstimate: "1-3 weeks",
+    cvPortfolioTip: "Keep digital copies of everything. Name files professionally: 'Nayeem_MBA_Transcript_Rajshahi.pdf'.",
+    status: "not_started",
+    deadline: "",
+    notes: "",
+    links: [],
+    evidence: [],
+    checklist: [
+      { id: "c6-1", text: "Request MBA transcript (Rajshahi)", completed: false },
+      { id: "c6-2", text: "Request BBA transcript (National University)", completed: false },
+      { id: "c6-3", text: "Request HSC and SSC certificates", completed: false },
+      { id: "c6-4", text: "Get certified translations if needed", completed: false },
+      { id: "c6-5", text: "Scan and upload to Google Drive", completed: false },
+    ],
+    isCustom: false,
+    category: "Documents",
+  },
+  {
+    id: "7",
+    title: "English Language Test (IELTS/TOEFL)",
+    description: "Achieve IELTS 7.0+ or TOEFL 100+ to prove C1 English proficiency.",
+    longDescription:
+      "Your CV states CEFR C1 English. You need an official IELTS or TOEFL score to verify this. Most Erasmus Mundus programs require IELTS 6.5+ or TOEFL 90+. Aim higher to be competitive. Register early — test dates fill up fast in Bangladesh.",
+    whyItMatters:
+      "Language proficiency is mandatory. An official score validates your C1 claim and strengthens your application.",
+    stepByStepActions: [
+      "Check language requirements for each target program",
+      "Register for IELTS/TOEFL at British Council Bangladesh",
+      "Prepare with official practice tests (2 weeks)",
+      "Take the test",
+      "Send scores directly to programs",
+      "Keep backup copies of results",
+    ],
+    toolsAndLinks: [
+      { name: "IELTS Official", url: "https://www.ielts.org/" },
+      { name: "TOEFL Official", url: "https://www.ets.org/toefl" },
+      { name: "British Council Bangladesh", url: "https://www.britishcouncil.org.bd/" },
+    ],
+    timeEstimate: "2-4 weeks",
+    cvPortfolioTip: "Aim for IELTS 7.0+ or TOEFL 100+. Your C1 level should make this achievable with practice.",
+    status: "not_started",
+    deadline: "",
+    notes: "",
+    links: [],
+    evidence: [],
+    checklist: [
+      { id: "c7-1", text: "Check program language requirements", completed: false },
+      { id: "c7-2", text: "Register for IELTS/TOEFL", completed: false },
+      { id: "c7-3", text: "Prepare and practice (2 weeks)", completed: false },
+      { id: "c7-4", text: "Take the test", completed: false },
+      { id: "c7-5", text: "Send scores to programs", completed: false },
+    ],
+    isCustom: false,
+    category: "Language",
+  },
+  {
+    id: "8",
+    title: "Complete Online Application Forms",
+    description: "Fill out all Erasmus Mundus application portals with your profile data.",
+    longDescription:
+      "Each program has its own portal. Use the profile data from this app (personal info, education, work experience, skills) to fill forms quickly. Create a spreadsheet to track login credentials and deadlines for each program. Double-check every entry before submitting.",
+    whyItMatters:
+      "Incomplete or inaccurate forms lead to disqualification. Organized tracking prevents missed deadlines.",
+    stepByStepActions: [
+      "Create a tracking spreadsheet (program, portal, login, deadline)",
+      "Register accounts on all application portals",
+      "Fill in personal information from your profile",
+      "Enter education: MBA 3.79, BBA 3.16",
+      "Enter work: US-Bangla Airlines (Mar 2023–present), RRF NGO",
+      "Double-check all entries for accuracy",
+    ],
+    toolsAndLinks: [
+      { name: "Google Sheets", url: "https://sheets.google.com/" },
+      { name: "Erasmus Mundus Catalog", url: "https://erasmus-plus.ec.europa.eu/" },
+    ],
+    timeEstimate: "2-3 hours per application",
+    cvPortfolioTip: "Use a password manager. Keep a master spreadsheet with every program's portal, credentials, and deadlines.",
+    status: "not_started",
+    deadline: "",
+    notes: "",
+    links: [],
+    evidence: [],
+    checklist: [
+      { id: "c8-1", text: "Create tracking spreadsheet", completed: false },
+      { id: "c8-2", text: "Register on all application portals", completed: false },
+      { id: "c8-3", text: "Fill personal/education/work info", completed: false },
+      { id: "c8-4", text: "Review all entries for accuracy", completed: false },
+      { id: "c8-5", text: "Submit all forms", completed: false },
+    ],
+    isCustom: false,
+    category: "Application",
+  },
+  {
+    id: "9",
+    title: "Budget & Scholarship Research",
+    description: "Research Erasmus Mundus scholarship coverage and plan your finances.",
+    longDescription:
+      "Erasmus Mundus scholarships cover tuition, travel, living costs, and insurance. Research specific coverage for your target programs. Calculate additional costs: visa fees, health insurance, initial settlement in Europe. Knowing costs helps you write better motivation letters and plan realistically.",
+    whyItMatters:
+      "Understanding costs and funding shows preparation. It helps you write more informed motivation letters and plan your transition.",
+    stepByStepActions: [
+      "Research Erasmus Mundus scholarship coverage for target programs",
+      "Calculate cost of living in target countries (Numbeo)",
+      "Identify additional funding sources if needed",
+      "Create a detailed budget plan",
+      "Research visa requirements for Bangladesh nationals",
+      "Prepare financial documents if required",
+    ],
+    toolsAndLinks: [
+      { name: "Numbeo Cost of Living", url: "https://www.numbeo.com/cost-of-living/" },
+      { name: "Erasmus Mundus Scholarship", url: "https://erasmus-plus.ec.europa.eu/" },
+    ],
+    timeEstimate: "1-2 days",
+    cvPortfolioTip: "Mention your financial planning in the motivation letter. It shows you are serious and prepared.",
+    status: "not_started",
+    deadline: "",
+    notes: "",
+    links: [],
+    evidence: [],
+    checklist: [
+      { id: "c9-1", text: "Research scholarship coverage", completed: false },
+      { id: "c9-2", text: "Calculate living costs in target countries", completed: false },
+      { id: "c9-3", text: "Create detailed budget plan", completed: false },
+      { id: "c9-4", text: "Research visa requirements for Bangladesh", completed: false },
+    ],
+    isCustom: false,
+    category: "Planning",
+  },
+  {
+    id: "10",
+    title: "Final Review & Submit",
+    description: "Review everything and submit your applications before deadlines.",
+    longDescription:
+      "Do a final review of all components: CV, motivation letter, portfolio, transcripts, language scores, recommendation letters. Have someone proofread your motivation letter. Submit at least 24 hours before each deadline. Save all confirmation receipts and screenshots as proof.",
+    whyItMatters:
+      "The final review catches errors that could cost you the scholarship. Every detail matters at this stage.",
+    stepByStepActions: [
+      "Review CV for accuracy and completeness",
+      "Final proofread of motivation letter",
+      "Verify all document uploads are correct",
+      "Confirm recommendation letters are submitted",
+      "Submit at least 24 hours before deadline",
+      "Save confirmation receipts and screenshots",
+    ],
+    toolsAndLinks: [],
+    timeEstimate: "2-3 hours per application",
+    cvPortfolioTip: "Take screenshots of every submission confirmation. Keep all emails. Your application is your proof.",
+    status: "not_started",
+    deadline: "",
+    notes: "",
+    links: [],
+    evidence: [],
+    checklist: [
+      { id: "c10-1", text: "Final CV review", completed: false },
+      { id: "c10-2", text: "Final motivation letter proofread", completed: false },
+      { id: "c10-3", text: "Verify all uploads", completed: false },
+      { id: "c10-4", text: "Submit applications", completed: false },
+      { id: "c10-5", text: "Save confirmations", completed: false },
+    ],
+    isCustom: false,
+    category: "Application",
+  },
+];
+
+export function loadData(): AppData {
+  if (typeof window === "undefined") {
+    return { tasks: defaultTasks, lastUpdated: new Date().toISOString() };
+  }
+
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (!stored) {
+    const initialData: AppData = {
+      tasks: defaultTasks,
+      lastUpdated: new Date().toISOString(),
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(initialData));
+    return initialData;
+  }
+
+  try {
+    return JSON.parse(stored);
+  } catch {
+    return { tasks: defaultTasks, lastUpdated: new Date().toISOString() };
+  }
+}
+
+export function saveData(data: AppData): void {
+  if (typeof window === "undefined") return;
+  data.lastUpdated = new Date().toISOString();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+export function getTaskById(id: string): Task | null {
+  const data = loadData();
+  return data.tasks.find((t) => t.id === id) || null;
+}
+
+export function updateTask(updatedTask: Task): void {
+  const data = loadData();
+  const index = data.tasks.findIndex((t) => t.id === updatedTask.id);
+  if (index !== -1) {
+    data.tasks[index] = updatedTask;
+  } else {
+    data.tasks.push(updatedTask);
+  }
+  saveData(data);
+}
+
+export function addTask(task: Task): void {
+  const data = loadData();
+  data.tasks.push(task);
+  saveData(data);
+}
+
+export function deleteTask(id: string): void {
+  const data = loadData();
+  data.tasks = data.tasks.filter((t) => t.id !== id);
+  saveData(data);
+}
+
+export function getProgressStats() {
+  const data = loadData();
+  const tasks = data.tasks;
+  const total = tasks.length;
+  const completed = tasks.filter((t) => t.status === "done").length;
+  const inProgress = tasks.filter((t) => t.status === "in_progress").length;
+  const notStarted = tasks.filter((t) => t.status === "not_started").length;
+  const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+  return { total, completed, inProgress, notStarted, percentage };
+}
